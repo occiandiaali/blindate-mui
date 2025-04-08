@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -29,7 +30,12 @@ import type { UserProps } from '../user-table-row';
 export function ExperiencesView() {
   const table = useTable();
 
+  const navigate = useNavigate();
   const [filterName, setFilterName] = useState('');
+
+  const handleRowClick = (row: any) => {
+    navigate(`/experience/${row}`);
+  };
 
   const dataFiltered: UserProps[] = applyFilter({
     inputData: _users,
@@ -106,6 +112,7 @@ export function ExperiencesView() {
                       row={row}
                       selected={table.selected.includes(row.id)}
                       onSelectRow={() => table.onSelectRow(row.id)}
+                      onJoinRoom={() => handleRowClick(row.id)}
                     />
                   ))}
 

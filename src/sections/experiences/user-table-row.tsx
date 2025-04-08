@@ -29,9 +29,10 @@ type UserTableRowProps = {
   row: UserProps;
   selected: boolean;
   onSelectRow: () => void;
+  onJoinRoom: () => void;
 };
 
-export function UserTableRow({ row, selected, onSelectRow }: UserTableRowProps) {
+export function UserTableRow({ row, selected, onSelectRow, onJoinRoom }: UserTableRowProps) {
   const [openPopover, setOpenPopover] = useState<HTMLButtonElement | null>(null);
 
   const handleOpenPopover = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
@@ -41,6 +42,11 @@ export function UserTableRow({ row, selected, onSelectRow }: UserTableRowProps) 
   const handleClosePopover = useCallback(() => {
     setOpenPopover(null);
   }, []);
+
+  const handleJoinRoom = useCallback(() => {
+    setOpenPopover(null);
+    onJoinRoom();
+  }, [onJoinRoom]);
 
   return (
     <>
@@ -111,6 +117,11 @@ export function UserTableRow({ row, selected, onSelectRow }: UserTableRowProps) 
           <MenuItem onClick={handleClosePopover}>
             <Iconify icon="solar:pen-bold" />
             Edit
+          </MenuItem>
+
+          <MenuItem onClick={handleJoinRoom}>
+            <Iconify icon="solar:home-angle-bold-duotone" />
+            Join Room
           </MenuItem>
 
           <MenuItem onClick={handleClosePopover} sx={{ color: 'error.main' }}>
