@@ -49,6 +49,7 @@ export function ProductItem({ product }: { product: ProductItemProps }) {
         height: 1,
         objectFit: 'cover',
         position: 'absolute',
+        cursor: 'pointer',
       }}
     />
   );
@@ -78,7 +79,13 @@ export function ProductItem({ product }: { product: ProductItemProps }) {
       </Box>
 
       <Stack spacing={2} sx={{ p: 3 }}>
-        <Link color="inherit" underline="hover" variant="subtitle2" noWrap>
+        <Link
+          color="inherit"
+          underline="hover"
+          variant="subtitle2"
+          noWrap
+          sx={{ cursor: 'pointer' }}
+        >
           {product.name}
         </Link>
 

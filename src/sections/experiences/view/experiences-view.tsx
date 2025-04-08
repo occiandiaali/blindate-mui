@@ -1,9 +1,10 @@
 import { useState, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Table from '@mui/material/Table';
-import Button from '@mui/material/Button';
+//import Button from '@mui/material/Button';
 import TableBody from '@mui/material/TableBody';
 import Typography from '@mui/material/Typography';
 import TableContainer from '@mui/material/TableContainer';
@@ -12,7 +13,7 @@ import TablePagination from '@mui/material/TablePagination';
 import { _users } from 'src/_mock';
 import { DashboardContent } from 'src/layouts/dashboard';
 
-import { Iconify } from 'src/components/iconify';
+//import { Iconify } from 'src/components/iconify';
 import { Scrollbar } from 'src/components/scrollbar';
 
 import { TableNoData } from '../table-no-data';
@@ -26,10 +27,15 @@ import type { UserProps } from '../user-table-row';
 
 // ----------------------------------------------------------------------
 
-export function UserView() {
+export function ExperiencesView() {
   const table = useTable();
 
+  const navigate = useNavigate();
   const [filterName, setFilterName] = useState('');
+
+  const handleRowClick = (row: any) => {
+    navigate(`/experience/${row}`);
+  };
 
   const dataFiltered: UserProps[] = applyFilter({
     inputData: _users,
@@ -49,15 +55,15 @@ export function UserView() {
         }}
       >
         <Typography variant="h4" sx={{ flexGrow: 1 }}>
-          Users
+          Experiences
         </Typography>
-        <Button
+        {/* <Button
           variant="contained"
           color="inherit"
           startIcon={<Iconify icon="mingcute:add-line" />}
         >
-          New user
-        </Button>
+          AI Recommend
+        </Button> */}
       </Box>
 
       <Card>
@@ -106,6 +112,7 @@ export function UserView() {
                       row={row}
                       selected={table.selected.includes(row.id)}
                       onSelectRow={() => table.onSelectRow(row.id)}
+                      onJoinRoom={() => handleRowClick(row.id)}
                     />
                   ))}
 

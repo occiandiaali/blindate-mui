@@ -14,9 +14,10 @@ import { DashboardLayout } from 'src/layouts/dashboard';
 
 export const DashboardPage = lazy(() => import('src/pages/dashboard'));
 export const BlogPage = lazy(() => import('src/pages/blog'));
-export const UserPage = lazy(() => import('src/pages/user'));
+export const ExperiencesPage = lazy(() => import('src/pages/experiences'));
+export const ExperiencePage = lazy(() => import('src/pages/experience'));
 export const SignInPage = lazy(() => import('src/pages/sign-in'));
-export const ProductsPage = lazy(() => import('src/pages/products'));
+export const MembersPage = lazy(() => import('src/pages/members'));
 export const Page404 = lazy(() => import('src/pages/page-not-found'));
 
 const renderFallback = () => (
@@ -50,8 +51,9 @@ export const routesSection: RouteObject[] = [
     ),
     children: [
       { index: true, element: <DashboardPage /> },
-      { path: 'user', element: <UserPage /> },
-      { path: 'products', element: <ProductsPage /> },
+      { path: 'experiences', element: <ExperiencesPage /> },
+      { path: 'experience/:roomId', element: <ExperiencePage /> },
+      { path: 'members', element: <MembersPage /> },
       { path: 'blog', element: <BlogPage /> },
     ],
   },
