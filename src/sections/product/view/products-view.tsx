@@ -86,10 +86,10 @@ export function ProductsView() {
 
   return (
     <DashboardContent>
-      <CartIcon totalItems={8} />
+      {/* <CartIcon totalItems={8} /> */}
 
       <Typography variant="h4" sx={{ mb: 5 }}>
-        Products
+        Members
       </Typography>
       <Box
         sx={{
