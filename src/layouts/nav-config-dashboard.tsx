@@ -20,13 +20,13 @@ export const navData = [
   },
   {
     title: 'Experiences',
-    path: '/user',
-    icon: icon('ic-user'),
+    path: '/experiences',
+    icon: icon('ic-schedule'),
   },
   {
     title: 'Members',
-    path: '/products',
-    icon: icon('ic-cart'),
+    path: '/members',
+    icon: icon('ic-team'),
     info: (
       <Label color="error" variant="inverted">
         +3

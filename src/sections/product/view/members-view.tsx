@@ -1,16 +1,18 @@
 import { useState, useCallback } from 'react';
 
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Pagination from '@mui/material/Pagination';
 import Typography from '@mui/material/Typography';
+import { Iconify } from 'src/components/iconify';
 
 import { _products } from 'src/_mock';
 import { DashboardContent } from 'src/layouts/dashboard';
 
 import { ProductItem } from '../product-item';
 import { ProductSort } from '../product-sort';
-import { CartIcon } from '../product-cart-widget';
+//import { CartIcon } from '../product-cart-widget';
 import { ProductFilters } from '../product-filters';
 
 import type { FiltersProps } from '../product-filters';
@@ -57,7 +59,7 @@ const defaultFilters = {
   category: CATEGORY_OPTIONS[0].value,
 };
 
-export function ProductsView() {
+export function MembersView() {
   const [sortBy, setSortBy] = useState('featured');
 
   const [openFilter, setOpenFilter] = useState(false);
@@ -91,6 +93,21 @@ export function ProductsView() {
       <Typography variant="h4" sx={{ mb: 5 }}>
         Members
       </Typography>
+      <Box
+        sx={{
+          mb: 5,
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
+        <Button
+          variant="contained"
+          color="inherit"
+          startIcon={<Iconify icon="mingcute:add-line" />}
+        >
+          AI Recommend
+        </Button>
+      </Box>
       <Box
         sx={{
           mb: 5,

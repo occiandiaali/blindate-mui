@@ -1,15 +1,15 @@
 import { CONFIG } from 'src/config-global';
 
-import { UserView } from 'src/sections/user/view';
+import { ExperiencesView } from 'src/sections/experiences/view';
 
 // ----------------------------------------------------------------------
 
 export default function Page() {
   return (
     <>
-      <title>{`Users - ${CONFIG.appName}`}</title>
+      <title>{`Experiences - ${CONFIG.appName}`}</title>
 
-      <UserView />
+      <ExperiencesView />
     </>
   );
 }
